@@ -1,0 +1,11 @@
+{
+  "name": "ecommerce_shop",
+  "version": "1.0.0",
+  "description": "eCommerce website design concept",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Elijah Micho",
+  "license": "ISC"
+}
