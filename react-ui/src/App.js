@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
 
 //Pages
@@ -27,10 +27,10 @@ export default function App() {
           <Gallery/>
         </Route>
         <Route path="/register">
-          <Register/>
+          { user ? <Redirect to="/"/> : <Register />}
         </Route>
         <Route path="/login">
-          <Login/>
+          { user ? <Redirect to="/"/> : <Login />}
         </Route>
       </Switch>
     </Router>

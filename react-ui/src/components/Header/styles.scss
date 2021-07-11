@@ -53,10 +53,10 @@
     .headerRight {
         flex: 3;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         .userLinks {
             li {
-                font-size: 25px;
+                font-size: 18px;
                 margin: 0 10px;
             }
         }

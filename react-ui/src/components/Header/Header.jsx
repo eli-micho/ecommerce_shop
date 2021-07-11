@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from './../../context/Auth/AuthContext';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/pieces_logo.png';
 import './styles.scss';
@@ -8,6 +9,28 @@ import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined'
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 
 export default function Header() {
+    const { user } = useContext(AuthContext);
+    const UserLoggedIn = () => {
+        return (
+            <ul className="userLinks">
+                <li>{`Welcome, ${user.name}`}</li>
+                <li><Link to="/profile"><PersonOutlineOutlinedIcon/></Link></li>
+                <li><Link to="/cart"><ShoppingCartOutlinedIcon/></Link></li>
+                <li><Link>Log Out</Link></li>
+
+            </ul>
+        )
+    };
+
+    const UserLoggedOut = () => {
+        return (
+            <ul className="userLinks">
+                <li><Link to="/login">Log In</Link></li>
+                <li><Link to="/profile"><PersonOutlineOutlinedIcon/></Link></li>
+                <li><Link to="/cart"><ShoppingCartOutlinedIcon/></Link></li>
+            </ul>
+        )
+    };
     return (
         <header className="headerContainer">
             <div className="headerLeft">
@@ -23,10 +46,7 @@ export default function Header() {
                 </ul>
             </div>
             <div className="headerRight">
-                <ul className="userLinks">
-                    <li><Link to="/profile"><PersonOutlineOutlinedIcon/></Link></li>
-                    <li><Link to="/cart"><ShoppingCartOutlinedIcon/></Link></li>
-                </ul>
+                {user ? <UserLoggedIn/> : <UserLoggedOut/>}
             </div>
         </header>
     )
