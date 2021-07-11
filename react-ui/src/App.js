@@ -7,6 +7,7 @@ import Home from './pages/home/Home';
 import Shop from './pages/shop/Shop';
 import Gallery from './pages/gallery/Gallery';
 import Header from './components/Header/Header';
+import Register from './pages/register/Register';
 
 export default function App() {
   return (
@@ -21,6 +22,9 @@ export default function App() {
         </Route>
         <Route path="/gallery">
           <Gallery/>
+        </Route>
+        <Route path="/register">
+          <Register/>
         </Route>
       </Switch>
     </Router>

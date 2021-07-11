@@ -1,35 +1,35 @@
-.login {
+.register {
     width: 100vw;
-    height: 100vh;
-    background-color: #f0f2f5;
+    height: calc(100vh - 50px);
+    background-color: #171010;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
 
-    .loginWrapper {
+    .registerWrapper {
         width: 70%;
         height: 70%;
         display: flex;
-        .loginLeft, .loginRight {
+        .registerLeft, .registerRight {
             display: flex;
             flex-direction: column;
             justify-content: center;
             flex: 1;
         }
 
-        .loginLeft {
-            .loginLogo {
+        .registerLeft {
+            .registerTitle {
                 font-size: 50px;
                 font-weight: 800;
-                color: #1775ee;
                 margin-bottom: 10px;
             }
-            .loginDesc {
-                font-size: 24px;
+            .registerDesc {
+                font-size: 22px;
             }
         }
 
-        .loginRight {
+        .registerRight {
             .loginBox {
                 height: 400px;
                 padding: 20px;
@@ -52,10 +52,10 @@
                     height: 50px;
                     border-radius: 10px;
                     border: none;
-                    background-color: #1775ee;
+                    background-color: #171010;
                     color: white;
-                    font-size: 20px;
-                    font-weight: 500;
+                    font-size: 22px;
+                    font-weight: 600;
                     cursor: pointer;
                     &:focus{
                         outline: none;
