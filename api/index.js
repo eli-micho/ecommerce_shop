@@ -5,6 +5,8 @@ const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const itemRoute = require("./routes/items");
+const userRoute = require("./routes/users");
+const authRoute = require("./routes/auth");
 
 dotenv.config();
 
@@ -19,6 +21,8 @@ app.use(morgan("common"));
 
 //Routes
 app.use("/api/items", itemRoute);
+app.use("/api/users", userRoute);
+app.use("/api/auth", authRoute);
 
 app.listen(5500, () => {
     console.log("Server is online");
