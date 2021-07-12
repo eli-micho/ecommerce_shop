@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-
+import { AuthContext } from './context/Auth/AuthContext';
 
 //Pages
 import Home from './pages/home/Home';
@@ -9,7 +9,7 @@ import Gallery from './pages/gallery/Gallery';
 import Header from './components/Header/Header';
 import Register from './pages/register/Register';
 import Login from './pages/login/Login';
-import { AuthContext } from './context/Auth/AuthContext';
+import Profile from './pages/profile/Profile';
 
 export default function App() {
   const { user } = useContext(AuthContext)
@@ -31,6 +31,9 @@ export default function App() {
         </Route>
         <Route path="/login">
           { user ? <Redirect to="/"/> : <Login />}
+        </Route>
+        <Route path="/profile">
+          <Profile/>
         </Route>
       </Switch>
     </Router>

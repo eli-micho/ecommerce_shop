@@ -2,7 +2,7 @@ const router = require("express").Router();
 const Item = require("../models/Item");
 
 //add a new item
-router.post("/", async (req, res) => {
+router.post("/new", async (req, res) => {
     const newItem = new Item(req.body)
     try{
         const savedItem = await newItem.save();
