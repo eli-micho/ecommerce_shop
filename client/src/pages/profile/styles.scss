@@ -1,5 +1,48 @@
 .profile{
     .profileWrapper{
         padding: 20px;
+
+        .profileCenter {
+            .newItemForm {
+                width: 350px;
+                .formRow {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 12px 0;
+                }
+
+                .itemPicture {
+                    .uploadPicture {
+                        cursor: pointer;
+                    }
+                }
+
+                .adminBtn{
+                    position: relative;
+                    padding: 1em 1.5em;
+                    border: 1px solid black;
+                    background-color: transparent;
+                    cursor: pointer;
+                    outline: none;
+                    font-size: 15px;
+                    margin: 0.6em 0.8em;
+                
+                }   
+            }
+        }
+
+        .profileBottom {
+            .transactionItem {
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                width: 80%;
+                .transactionItemPicture {
+                    width: 35px;
+                    height: 35px;
+                    object-fit: cover;
+                }
+            }
+        }
     }
 }

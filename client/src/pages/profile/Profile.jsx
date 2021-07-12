@@ -2,6 +2,8 @@ import React, {useState, useRef} from 'react';
 import axios from 'axios';
 import './styles.scss';
 
+import cabinet from './../../assets/misc/cabinet.jpg';
+
 //MaterialUI
 import PermMediaOutlinedIcon from '@material-ui/icons/PermMediaOutlined';
 
@@ -9,6 +11,7 @@ export default function Profile() {
     const itemName = useRef();
     const itemDesc = useRef();
     const itemPrice = useRef();
+    const itemDate = new Date();
     const [file, setFile] = useState(null);
 
     const handleSubmit = async (e) => {
@@ -42,9 +45,11 @@ export default function Profile() {
                             <input type="text" name="itemDes" className="adminInput" ref={itemDesc} placeholder="Item Description"/>
                         </div>
                         <div className="formRow">
-                            <label htmlFor="itemPicture">Item Picture</label>
-                            <PermMediaOutlinedIcon/>
-                            <input type="file" name="itemPicture" accept=".png, .jpeg, .jpg" onChange={(e) => setFile(e.target.files[0])} placeholder="Item Description"/>
+                            <label htmlFor="itemPicture">
+                                <span className="uploadText">Item Picture</span>
+                                <PermMediaOutlinedIcon className="uploadIcon"/>
+                                <input style={{display: "none"}} type="file" name="itemPicture" accept=".png, .jpeg, .jpg" onChange={(e) => setFile(e.target.files[0])} placeholder="Item Description"/>
+                            </label>
                         </div>
                         <div className="formRow">
                             <label htmlFor="itemPrice">Item Price</label>
@@ -52,6 +57,16 @@ export default function Profile() {
                         </div>
                         <input type="submit" className="adminBtn"  />
                     </form>
+                </div>
+                <div className="profileBottom">
+                    <h2>Transactions</h2>
+                    <div className="transactionItem">
+                        <img className="transactionItemPicture" src={cabinet} alt="item"/>
+                        <span className="transactionItemName">Cabinet</span>
+                        <span className="transactionItemTime">{}</span>
+                        <span className="transactionItemPrice">$150.63</span>
+                        <span className="transactionItemStatus">Completed</span>
+                    </div>
                 </div>
             </div>
         </div>
