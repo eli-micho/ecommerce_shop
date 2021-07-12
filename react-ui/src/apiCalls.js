@@ -11,3 +11,14 @@ export const loginCall = async (userCredentials, dispatch) => {
         dispatch({type: "LOGIN_FAILURE", payload: err });
     }
 };
+
+export const logoutCall = async (dispatch) => {
+    dispatch({
+        type: "LOGOUT_START"
+    });
+    try {
+        dispatch({type: "LOGOUT_SUCCESS", payload: null});
+    }catch(err){
+        console.log(err)
+    }
+}

@@ -7,17 +7,24 @@ import './styles.scss';
 //Material UI
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
+import { CircularProgress } from '@material-ui/core';
+import { logoutCall } from '../../apiCalls';
 
 export default function Header() {
-    const { user } = useContext(AuthContext);
+    const { user, isFetching, dispatch } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logoutCall(dispatch);
+        console.log(user)
+    };
+    
     const UserLoggedIn = () => {
         return (
             <ul className="userLinks">
                 <li>{`Welcome, ${user.name}`}</li>
                 <li><Link to="/profile"><PersonOutlineOutlinedIcon/></Link></li>
                 <li><Link to="/cart"><ShoppingCartOutlinedIcon/></Link></li>
-                <li><Link>Log Out</Link></li>
-
+                <li><button className="logOutBtn" onClick={handleLogOut}>Log Out</button></li>
             </ul>
         )
     };
@@ -46,7 +53,7 @@ export default function Header() {
                 </ul>
             </div>
             <div className="headerRight">
-                {user ? <UserLoggedIn/> : <UserLoggedOut/>}
+                {user ? isFetching ? <CircularProgress size="20px" /> : <UserLoggedIn/> : <UserLoggedOut/>}
             </div>
         </header>
     )

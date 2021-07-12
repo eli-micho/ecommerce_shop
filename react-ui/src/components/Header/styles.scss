@@ -59,6 +59,21 @@
                 font-size: 18px;
                 margin: 0 10px;
             }
+            .logOutBtn {
+                cursor: pointer;
+                font-size: 18px;
+                border: none;
+                background: none;
+
+                &:hover {
+                    font-weight: 18px;
+                    font-weight: 800;
+                }
+                
+                &:focus {
+                    outline: none;
+                }
+            }
         }
     }
 }
