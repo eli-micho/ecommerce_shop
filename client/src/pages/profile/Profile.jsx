@@ -1,4 +1,5 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useContext} from 'react';
+import { AuthContext } from './../../context/Auth/AuthContext';
 import axios from 'axios';
 import './styles.scss';
 
@@ -8,11 +9,13 @@ import cabinet from './../../assets/misc/cabinet.jpg';
 import PermMediaOutlinedIcon from '@material-ui/icons/PermMediaOutlined';
 
 export default function Profile() {
+    const { user } = useContext(AuthContext);
     const itemName = useRef();
     const itemDesc = useRef();
     const itemPrice = useRef();
     const itemDate = new Date();
     const [file, setFile] = useState(null);
+    console.log(user)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -29,8 +32,8 @@ export default function Profile() {
         }
     };
 
-    return (
-        <div className="profile">
+    const AdminProfile = () => {
+        return (
             <div className="profileWrapper">
                 <div className="profileTop"><h2>Dashboard</h2></div>
                 <div className="profileCenter">
@@ -69,6 +72,20 @@ export default function Profile() {
                     </div>
                 </div>
             </div>
+        )
+    }
+
+    const UserProfile = () => {
+        return (
+            <div className="profileWrapper">
+                User
+            </div>
+        )
+    };
+
+    return (
+        <div className="profile">
+            { user ? <AdminProfile /> : <UserProfile/>}
         </div>
     )
 }
