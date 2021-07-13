@@ -95,7 +95,7 @@ export default function Sidebar() {
                         </FormControl>
                     </div>
 
-                    <Button variant="contained">Apply Filters</Button>
+                    <Button variant="contained" className="filterBtn">Apply Filters</Button>
                 </form>
                 
             </div>

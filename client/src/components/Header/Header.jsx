@@ -48,8 +48,6 @@ export default function Header() {
             <div className="headerCenter">
                 <ul className="mainLinks">
                     <li><Link to="/shop">Shop</Link></li>
-                    <li>/</li>
-                    <li><Link to="/gallery">Gallery</Link></li>
                 </ul>
             </div>
             <div className="headerRight">

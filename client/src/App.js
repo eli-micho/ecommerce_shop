@@ -5,7 +5,6 @@ import { AuthContext } from './context/Auth/AuthContext';
 //Pages
 import Home from './pages/home/Home';
 import Shop from './pages/shop/Shop';
-import Gallery from './pages/gallery/Gallery';
 import Header from './components/Header/Header';
 import Register from './pages/register/Register';
 import Login from './pages/login/Login';
@@ -22,9 +21,6 @@ export default function App() {
         </Route>
         <Route path="/shop">
           <Shop/>
-        </Route>
-        <Route path="/gallery">
-          <Gallery/>
         </Route>
         <Route path="/register">
           { user ? <Redirect to="/"/> : <Register />}
