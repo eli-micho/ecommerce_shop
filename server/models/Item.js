@@ -10,7 +10,8 @@ const ItemSchema = new mongoose.Schema({
         max: 500
     },
     image: {
-        type: String
+        type: String,
+        default: ""
     },
     price: {
         type: String,

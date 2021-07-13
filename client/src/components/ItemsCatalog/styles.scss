@@ -1,7 +1,7 @@
 .itemsCatalog{
     flex: 9;
-    border: 1px solid black;
     background-color: #e8e8e8ff;
+    overflow-x: hidden;
     .itemsWrapper {
         padding: 20px;
 
@@ -10,6 +10,11 @@
             font-size: 25px;
             padding: 0;
             margin-bottom: 10px;
+        }
+        .itemsCardBox {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
         }
     }
 }

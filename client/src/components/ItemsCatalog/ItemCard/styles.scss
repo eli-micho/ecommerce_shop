@@ -3,6 +3,7 @@
     width: 300px;
     height: 400px;
     border-radius: 10px;
+    margin-bottom: 35px;
     .itemCardWrapper {
         padding: 10px;
         .itemCardHeader {
@@ -19,14 +20,17 @@
             justify-content: center;
             margin-bottom: 15px;
             .itemPicture {
-                object-fit: cover;
+                object-fit: contain;
                 max-height: 200px;
+                min-height: 200px;
+                max-width: 200px;
             }
         }
         .itemCardDesc {
             margin-top: 7px;
             h4 {
                 margin: 0;
+                text-transform: capitalize;
             }
             p {
                 margin: 0;

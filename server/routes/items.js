@@ -12,4 +12,15 @@ router.post("/new", async (req, res) => {
     }
 });
 
+//get all items
+router.get("/getall", async (req, res) => {
+    const allItems = await Item.find({})
+    try {
+        
+        res.status(200).json(allItems)
+    }catch(err){
+        res.status(500).json(err)
+    }
+});
+
 module.exports = router;
