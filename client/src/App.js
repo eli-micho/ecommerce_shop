@@ -30,7 +30,7 @@ export default function App() {
             { user ? <Redirect to="/"/> : <Login />}
           </Route>
           <Route path="/profile">
-            <Profile/>
+            { !user ? <Redirect to="/register"/> : <Profile/>}
           </Route>
         </Switch>
       </div>
