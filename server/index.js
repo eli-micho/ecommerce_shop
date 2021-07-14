@@ -26,6 +26,8 @@ app.use("/api/items", itemRoute);
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
 
+app.get('/', (req, res) => { res.send('Hello from Express!')})
+
 app.listen(process.env.PORT || 5500, () => {
     console.log("Server is online");
 });
