@@ -10,7 +10,7 @@ export default function ItemsCatalog() {
     useEffect(() => {
         const getAllItems = async () => {
             try{
-                const allItems = await axios.get('https://ecommerce-furniture-shop.herokuapp.com/items/getall');
+                const allItems = await axios.get('https://ecommerce-furniture-shop.herokuapp.com/api/items/getall');
                 setItemsList(allItems.data)
             }catch(err){   
                 console.log(err)
