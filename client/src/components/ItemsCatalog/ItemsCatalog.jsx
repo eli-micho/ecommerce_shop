@@ -5,11 +5,12 @@ import './styles.scss';
 
 export default function ItemsCatalog() {
     const [itemsList, setItemsList] = useState([]);
+    const heroku_url = process.env.HEROKU_URL
 
     useEffect(() => {
         const getAllItems = async () => {
             try{
-                const allItems = await axios.get("/items/getall");
+                const allItems = await axios.get(`${heroku_url}/items/getall`);
                 setItemsList(allItems.data)
             }catch(err){   
                 console.log(err)
@@ -19,7 +20,7 @@ export default function ItemsCatalog() {
     }, [])
 
     return (
-        <div className="itemsCatalog">
+        <div className="itemsCatalog fadeInBottom">
             <div className="itemsWrapper">
                 <h2 className="itemsTitle">Catalog</h2>
                 <div className="itemsCardBox">

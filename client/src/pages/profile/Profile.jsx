@@ -13,7 +13,6 @@ export default function Profile() {
     const itemName = useRef();
     const itemDesc = useRef();
     const itemPrice = useRef();
-    const itemDate = new Date();
     const [file, setFile] = useState(null);
     console.log(user)
 
@@ -78,14 +77,37 @@ export default function Profile() {
     const UserProfile = () => {
         return (
             <div className="profileWrapper">
-                User
+                <div className="profileTop">
+                    <h2>Overview</h2>
+                    <div className="userProfileName">{user.name}</div>
+                </div>
+
+                <div className="profileCenter">
+                    <div className="userSavedItems">
+                        <h3>Saved Items</h3>
+                        <p>You have no saved items</p>
+                    </div>
+                </div>
+             
+                <div className="profileBottom">
+                    <div className="userTransactionHistory">
+                        <h3>Previous Purchases</h3>
+                        <div className="transactionItem">
+                            <img className="transactionItemPicture" src={cabinet} alt="item"/>
+                            <span className="transactionItemName">Cabinet</span>
+                            <span className="transactionItemTime">{}</span>
+                            <span className="transactionItemPrice">$150.63</span>
+                            <span className="transactionItemStatus">Completed</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     };
 
     return (
         <div className="profile">
-            { user ? <AdminProfile /> : <UserProfile/>}
+            { user.isAdmin === true ? <AdminProfile /> : <UserProfile/>}
         </div>
     )
 }

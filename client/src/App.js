@@ -15,23 +15,25 @@ export default function App() {
   return (
     <Router>
       <Header/>
-      <Switch>
-        <Route exact path="/">
-          <Home/>
-        </Route>
-        <Route path="/shop">
-          <Shop/>
-        </Route>
-        <Route path="/register">
-          { user ? <Redirect to="/"/> : <Register />}
-        </Route>
-        <Route path="/login">
-          { user ? <Redirect to="/"/> : <Login />}
-        </Route>
-        <Route path="/profile">
-          <Profile/>
-        </Route>
-      </Switch>
+      <div className="appContainer">
+        <Switch>
+          <Route exact path="/">
+            <Home/>
+          </Route>
+          <Route path="/shop">
+            <Shop/>
+          </Route>
+          <Route path="/register">
+            { user ? <Redirect to="/"/> : <Register />}
+          </Route>
+          <Route path="/login">
+            { user ? <Redirect to="/"/> : <Login />}
+          </Route>
+          <Route path="/profile">
+            <Profile/>
+          </Route>
+        </Switch>
+      </div>
     </Router>
   )
 }

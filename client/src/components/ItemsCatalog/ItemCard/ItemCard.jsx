@@ -1,7 +1,6 @@
 import React from 'react';
 import './styles.scss';
 import noImage from './../../../assets/misc/no-image.png';
-import chair from './../../../assets/chairs/turquoise_armchair.png';
 
 //MaterialUI
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
