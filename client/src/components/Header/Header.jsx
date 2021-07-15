@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useHistory } from 'react-router'
 import { AuthContext } from './../../context/Auth/AuthContext';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/pieces_logo.png';
@@ -12,10 +13,11 @@ import { logoutCall } from '../../apiCalls';
 
 export default function Header() {
     const { user, isFetching, dispatch } = useContext(AuthContext);
+    const history = useHistory();
 
     const handleLogOut = () => {
         logoutCall(dispatch);
-        console.log(user)
+        history.push("/");
     };
     
     const UserLoggedIn = () => {
