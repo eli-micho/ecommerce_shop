@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { AuthContext } from './../../../context/Auth/AuthContext';
 import './styles.scss';
 import noImage from './../../../assets/misc/no-image.png';
 
@@ -6,6 +7,15 @@ import noImage from './../../../assets/misc/no-image.png';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 
 export default function ItemCard({item}) {
+    const { user } = useContext(AuthContext);
+    console.log(item, user)
+    const handleAddToCart = () => {
+        try{
+
+        }catch(err){
+            console.log(err);
+        }
+    };
 
     return (
         <div className="itemCard">
@@ -18,7 +28,7 @@ export default function ItemCard({item}) {
                     <p className="price">{`$${item.price}`}</p>
                 </div>
                 <div className="itemCardCart">
-                    <button className="cartBtn">Add to Cart</button>
+                    <button className="cartBtn" onClick={handleAddToCart}>Add to Cart</button>
                 </div>
             </div>
         </div>

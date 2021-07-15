@@ -21,13 +21,25 @@ app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", '*'); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    if ('OPTIONS' == req.method) {
+        res.send(200);
+      }
+      else {
+        next();
+      }
+});
+  
+
 //Routes
 app.use("/api/items", itemRoute);
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
 
-app.get('/', (req, res) => { res.send('Hello from Express!')})
-
+/* app.get('/', (req, res) => { res.send('Hello from Express!')})
+ */
 app.listen(process.env.PORT || 5500, () => {
     console.log("Server is online");
 });

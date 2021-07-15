@@ -21,6 +21,11 @@ const UserSchema = new mongoose.Schema({
     isAdmin: {
         type: Boolean,
         default: false
+    },
+    itemsInCart: {
+        type: Array,
+        default: [],
+        required: true
     }
 },
     {timestamps: true}
